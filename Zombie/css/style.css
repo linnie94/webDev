@@ -1,0 +1,15 @@
+.h1 {
+    text-align: center;
+}
+body {
+    background-color: dimgrey;
+}
+#score {
+    text-align: center;
+}
+#missed {
+    text-align: center;
+}
+table {
+    width: 100%;
+}

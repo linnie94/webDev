@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zombie Game</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <audio id="gunshot">
+        <source src="audio/Gunsound.mp3">
+    </audio>
+        <p id="title">Zombie Game</p>
+        <button id="start">Start</button>
+        <button id="reset">Replay</button>
+        <table>
+            <tr>
+                <th>Score</th>
+                <th>Missed</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="score"></p>
+                </td>
+                <td>
+                    <p id="missed"></p>
+                </td>
+            </tr>
+        </table>
+<!--        <h1>Zombie Game</h1>-->
+        <img id="aliveone" src="img/running.gif" alt="runner" width="200px" height="150px">
+        <img id="deadone" src="img/dead.gif" alt="dead" width="200px" height="150px">
+<!--    <script>-->
+<!--        function generateRandom(a, b) {-->
+<!--            let num;-->
+<!--            if (a > b)-->
+<!--            {-->
+<!--                num = (Math.random() * (a-b)) + b;-->
+<!--            }-->
+<!--            else-->
+<!--            {-->
+<!--                num = a + (Math.random() * (b-a)) ;-->
+<!--            }-->
+<!--            return num;-->
+<!--        }-->
+<!--    </script>-->
+    <script>
+        // display score
+        let score_onscreen = 0;
+        let missed_onscreen = 0;
+        function initial_display(score, missed)
+        {
+            document.getElementById('score').innerHTML=score;
+            document.getElementById('missed').innerHTML=missed;
+        }
+        initial_display(score_onscreen, missed_onscreen);
+        function zapped(score)
+        {
+            score++;
+            document.getElementById('score').innerHTML=score;
+        }
+        function missed(missed_zombie)
+        {
+            missed_zombie++;
+            document.getElementById('missed').innerHTML=missed_zombie;
+        }
+        // move the zombie around
+        // handle click on the "end" button
+        // b
+        let zombie = document.getElementById('aliveone');
+        let dead_zombie = document.getElementById('deadone');
+
+        const screenWidth = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+        const screenHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+        let img_width = 200;
+        let img_height = 150;
+        let width_value = 0;
+        let height_value = 0;
+        let mid_x = (screenWidth/2) - (img_width);
+        let mid_y = (screenHeight/2) - (img_height);
+        zombie.style.display="block";
+        zombie.style.marginLeft= mid_x +"px";
+        zombie.style.marginTop= mid_y + "px";
+        function random_locator() {
+            document.getElementById('aliveone').style.marginLeft = width_value + 'px';
+            document.getElementById('aliveone').style.marginTop = height_value + 'px';
+            width_value = (Math.floor(Math.random() * (width - (img_width/2))));
+            height_value = (Math.floor(Math.random() * (height - (img_height/2))));
+        }
+        // setInterval(random_locator, 200);
+        function img_hider(whichzombie){
+            whichzombie.style.display='none';
+        }
+        img_hider(dead_zombie);
+
+        // function click_dead()
+        // {
+        //     ;
+        //
+        // }
+        // zombie.onlick=click_dead();
+        // function click_random_location()
+        // {
+        //     document.getElementById('img').style.position="absolute";
+        //     document.getElementById('img').style.left= width_value+'px';
+        //     document.getElementById('img').style.top= height_value+'px';
+        //     width_value = (Math.floor(Math.random()* (width - img_width)) + 1);
+        //     height_value = (Math.floor(Math.random()* (height - img_height)) +1);
+        // }
+        // document.getElementById('img').onclick = click_random_location;
+        // // c
+        // let img_width = 320;
+        // let img_height = 204;
+    </script>
+</body>
+</html>

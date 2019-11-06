@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sohn_lab7_b</title>
+</head>
+<body>
+    <img id="img" src="img/source.gif" alt="Capoo" width="320" height="270">
+    <script>
+        const width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+        const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+        let img_width = 320;
+        let img_height = 270;
+        let width_value = 120;
+        let height_value = 120;
+        function click_random_location()
+        {
+            document.getElementById('img').style.position="absolute";
+            document.getElementById('img').style.left= width_value+'px';
+            document.getElementById('img').style.top= height_value+'px';
+            width_value = (Math.floor(Math.random()* (width - img_width)) + 1);
+            height_value = (Math.floor(Math.random()* (height - img_height)) +1);
+        }
+        document.getElementById('img').onclick = click_random_location;
+    </script>
+</body>
+</html>

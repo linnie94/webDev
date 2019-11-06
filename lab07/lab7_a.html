@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sohn_lab7_a</title>
+</head>
+<body>
+    <script>
+        function generateRandom(a, b) {
+            let num;
+            if (a > b)
+            {
+                num = (Math.random() * (a-b)) + b;
+            }
+            else
+            {
+                num = a + (Math.random() * (b-a)) ;
+            }
+            return num;
+        }
+        console.log(generateRandom(10, 9));
+        console.log(generateRandom(-3, 5));
+        console.log(generateRandom(10, 5));
+        console.log(generateRandom(2, 10));
+        console.log(generateRandom(7, 9));
+        console.log(generateRandom(8, 9));
+        console.log(generateRandom(0, 1));
+    </script>
+</body>
+</html>
