@@ -93,7 +93,7 @@
       }
 
       function zapped() {
-        current_score = document.getElementById("score").innerHTML;
+        let current_score = document.getElementById("score").innerHTML;
         current_score++;
         document.getElementById("score").innerHTML = current_score;
       }
@@ -112,8 +112,8 @@
         zombie.style.marginTop = height_value + "px";
 
         // 2nd zombie
-        width_value2 = Math.floor(Math.random() * (width - img_width));
-        height_value2 = Math.floor(Math.random() * (height - img_height * 2));
+        width_value = Math.floor(Math.random() * (width - img_width));
+        height_value = Math.floor(Math.random() * (height - img_height * 2));
         zombie2.style.display = "block";
         zombie2.style.marginLeft = width_value2 + "px";
         zombie2.style.marginTop = height_value2 + "px";
