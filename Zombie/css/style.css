@@ -1,4 +1,4 @@
-.h1 {
+#title {
     text-align: center;
 }
 body {
@@ -7,9 +7,38 @@ body {
 #score {
     text-align: center;
 }
-#missed {
-    text-align: center;
-}
 table {
+    /*float: left;*/
+    /*width: 100%;*/
+    font-size: 20px;
+    width: 100px;
+    float: right;
+    left: 30px;
+    border: 3px dotted darkred;
+}
+
+/*#aliveone, #deadone {*/
+/*    display: block;*/
+/*    !*margin-left: auto;*!*/
+/*    !*margin-right: auto;*!*/
+/*    width: 50%;*/
+/*    height: auto;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+button {
+    display: block;
+    margin: auto;
+    font-size: 8px;
+    /*margin: auto;*/
+}
+
+#table {
+}
+
+.mainDiv {
+    float: bottom;
     width: 100%;
 }
+
