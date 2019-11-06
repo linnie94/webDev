@@ -7,7 +7,7 @@
   </head>
   <body>
     <audio id="gunshot">
-      <source src="audio/Gunsound.mp3" />
+      <source src="src/Gunsound.mp3" />
     </audio>
     <h1 id="title">Zombie Game</h1>
     <table id="table">
@@ -27,28 +27,28 @@
     <div class="mainDiv">
       <img
         id="aliveone"
-        src="img/running.gif"
+        src="image/running.gif"
         alt="runner"
         width="200px"
         height="150px"
       />
       <img
         id="aliveone2"
-        src="img/running.gif"
+        src="image/running.gif"
         alt="runner"
         width="200px"
         height="150px"
       />
       <img
         id="deadone"
-        src="img/dead.gif"
+        src="image/dead.gif"
         alt="dead"
         width="200px"
         height="150px"
       />
       <img
         id="deadone2"
-        src="img/dead.gif"
+        src="image/dead.gif"
         alt="dead"
         width="200px"
         height="150px"
@@ -112,13 +112,12 @@
         zombie.style.marginTop = height_value + "px";
 
         // 2nd zombie
-        width_value = Math.floor(Math.random() * (width - img_width));
-        height_value = Math.floor(Math.random() * (height - img_height * 2));
+        width_value2 = Math.floor(Math.random() * (width - img_width));
+        height_value2 = Math.floor(Math.random() * (height - img_height * 2));
         zombie2.style.display = "block";
-        zombie2.style.marginLeft = width_value + "px";
-        zombie2.style.marginTop = height_value + "px";
+        zombie2.style.marginLeft = width_value2 + "px";
+        zombie2.style.marginTop = height_value2 + "px";
       }
-
       function img_hider(whichzombie) {
         whichzombie.style.display = "none";
       }
@@ -133,8 +132,8 @@
 
       function end_game() {
         initial_display(0);
-        clearInterval(start_game);
-        zombie_starting_point();
+        clearInterval(refresh_interval);
+        // zombie_starting_point();
         img_hider(zombie);
         img_hider(zombie2);
         alert("Thanks for playing!");
@@ -170,7 +169,7 @@
         // Copy original zombie's margin properties and set dead zombie's
         dead_zombie2.style.marginLeft = zombie2.style.marginLeft;
         dead_zombie2.style.marginTop = zombie2.style.marginTop;
-        console.log('zombie2:', [zombie2.style.marginLeft, zombie2.style.marginTop])
+        // console.log('zombie2:', [zombie2.style.marginLeft, zombie2.style.marginTop])
         img_display(dead_zombie2);
 
         // Make it disappear
@@ -182,15 +181,21 @@
         zapped();
       };
 
+
       // Onclick listeners for start and end buttons
       document.getElementById("start").onclick = function() {
         zombie_starting_point();
         start_game();
       };
-
+      // start_game();
       document.getElementById("end").onclick = function() {
         end_game();
       };
+      document.getElementById("start").onclick = function() {
+        zombie_starting_point();
+        start_game();
+      };
+
     </script>
   </body>
 </html>
