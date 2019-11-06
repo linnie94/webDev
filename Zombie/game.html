@@ -133,8 +133,9 @@
 
       function end_game() {
         initial_display(0);
-        clearInterval(refresh_interval);
+        clearInterval(start_game);
         zombie_starting_point();
+        img_hider(zombie);
         img_hider(zombie2);
         alert("Thanks for playing!");
       }
