@@ -41,4 +41,63 @@ button {
     float: bottom;
     width: 100%;
 }
+#title {
+  text-align: center;
+}
 
+body {
+  background-color: dimgrey;
+}
+
+#score {
+  text-align: center;
+}
+
+table {
+  /*float: left;*/
+  /*width: 100%;*/
+  font-size: 20px;
+  width: 100px;
+  float: right;
+  left: 30px;
+  border: 3px dotted darkred;
+}
+/*
+#aliveone, #aliveone2 {
+   display: block;
+   position: absolute;
+   margin: 0;
+   padding: 0;
+} */
+
+#aliveone, #deadone {
+  position: absolute;
+  z-index: 0;
+}
+#aliveone2, #deadone2 {
+  position: absolute;
+  z-index: 10;
+}
+
+button {
+  display: block;
+  margin: auto;
+  font-size: 8px;
+  /*margin: auto;*/
+}
+
+.mainDiv {
+  float: bottom;
+  width: 100%;
+}
+
+#start {
+    font-size: 20px;
+}
+
+#end {
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}

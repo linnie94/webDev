@@ -11,72 +11,112 @@
     </audio>
     <h1 id="title">Zombie Game</h1>
     <table id="table">
-        <tr>
-          <td>
-            <p id="score"></p>
-          </td>
-        </tr>
+      <tr>
+        <td>
+          <p id="score"></p>
+        </td>
+      </tr>
       <tr>
         <td>
           <button id="start">Start</button>
-          <button id="reset">Replay</button>
         </td>
       </tr>
-      </table>
-    <div class="section">
+    </table>
 
-    </div>
 
     <div class="mainDiv">
-      <img id="aliveone" src="img/running.gif" alt="runner" width="200px" height="150px"/>
-      <img id="deadone" src="img/dead.gif" alt="dead" width="200px" height="150px" />
+      <img
+        id="aliveone"
+        src="img/running.gif"
+        alt="runner"
+        width="200px"
+        height="150px"
+      />
+      <img
+        id="aliveone2"
+        src="img/running.gif"
+        alt="runner"
+        width="200px"
+        height="150px"
+      />
+      <img
+        id="deadone"
+        src="img/dead.gif"
+        alt="dead"
+        width="200px"
+        height="150px"
+      />
+      <img
+        id="deadone2"
+        src="img/dead.gif"
+        alt="dead"
+        width="200px"
+        height="150px"
+      />
     </div>
+
+    <div>
+      <button id="end">End Game</button>
+    </div>
+
     <script>
-      // display score
+      // Variables
       let score_onscreen = 0;
       let zombie = document.getElementById("aliveone");
+      let zombie2 = document.getElementById("aliveone2");
       let dead_zombie = document.getElementById("deadone");
-      img_hider(zombie);
+      let dead_zombie2 = document.getElementById("deadone2");
 
-      function zombie_starting_point()
-      {
+      // Initialize
+      img_hider(zombie);
+      img_hider(zombie2);
+      img_hider(dead_zombie);
+      img_hider(dead_zombie2);
+      initial_display(score_onscreen);
+
+      function zombie_starting_point() {
         img_display(zombie);
         let screenWidth = window.innerWidth;
         let screenHeight = window.innerHeight;
         let img_width = 200;
         let img_height = 150;
-        let mid_x = screenWidth / 2 - img_width +100;
+        let mid_x = screenWidth / 2 - img_width + 100;
         let mid_y = screenHeight / 2 - img_height - 15;
         zombie.style.display = "block";
         zombie.style.marginLeft = mid_x + "px";
         zombie.style.marginTop = mid_y + "px";
-        setInterval(random_locator, 2000);
         // setTimeout(function(){img_hider(zombie)}, 2000);
       }
 
-      function initial_display(score)
-      {
+      function initial_display(score) {
         document.getElementById("score").innerHTML = score;
       }
 
-      initial_display(score_onscreen);
-
-      function zapped(score) {
-        score++;
-        document.getElementById("score").innerHTML = score;
+      function zapped() {
+        current_score = document.getElementById("score").innerHTML;
+        current_score++;
+        document.getElementById("score").innerHTML = current_score;
       }
-
 
       function random_locator() {
         let width = window.innerWidth;
         let height = window.innerHeight;
         let img_width = 200;
         let img_height = 150;
-        zombie.style.display = "block";
+
+        // 1st zombie
         width_value = Math.floor(Math.random() * (width - img_width));
-        height_value = Math.floor(Math.random() * (height - img_height*2));
+        height_value = Math.floor(Math.random() * (height - img_height * 2));
+        zombie.style.display = "block";
         zombie.style.marginLeft = width_value + "px";
         zombie.style.marginTop = height_value + "px";
+
+        // 2nd zombie
+        width_value = Math.floor(Math.random() * (width - img_width));
+        height_value = Math.floor(Math.random() * (height - img_height * 2));
+        zombie2.style.display = "block";
+        zombie2.style.marginLeft = width_value + "px";
+        zombie2.style.marginTop = height_value + "px";
       }
 
       function img_hider(whichzombie) {
@@ -87,30 +127,70 @@
         whichzombie.style.display = "block";
       }
 
-      //   Initially hide dead zombie
-      img_hider(dead_zombie);
+      function start_game() {
+        refresh_interval = setInterval(random_locator, 2000);
+      }
+
+      function end_game() {
+        initial_display(0);
+        clearInterval(refresh_interval);
+        zombie_starting_point();
+        img_hider(zombie2);
+        alert("Thanks for playing!");
+      }
+
       // Create onclick event for zombie
       zombie.onclick = function() {
+        document.getElementById("gunshot").play();
+
         // Hide original zombie
-        document.getElementById('gunshot').play();
         img_hider(zombie);
+
         // Copy original zombie's margin properties and set dead zombie's
-        // dead_zombie.style.display='inline';
         dead_zombie.style.marginLeft = zombie.style.marginLeft;
         dead_zombie.style.marginTop = zombie.style.marginTop;
         img_display(dead_zombie);
+
         // Make it disappear
-        setTimeout(function(){img_hider(dead_zombie)}, 2000);
+        setTimeout(function() {
+          img_hider(dead_zombie);
+        }, 600);
+
         // Increment score
-        let score_val = document.getElementById("score").innerHTML;
-        zapped(score_val);
-        // TO DO: move zombie to random position
+        zapped();
       };
 
-      document.getElementById('start').onclick=zombie_starting_point;
-      // setInterval(random_locator, 2000);
+      zombie2.onclick = function() {
+        document.getElementById("gunshot").play();
 
+        // Hide original zombie
+        img_hider(zombie2);
 
+        // Copy original zombie's margin properties and set dead zombie's
+        dead_zombie2.style.marginLeft = zombie2.style.marginLeft;
+        dead_zombie2.style.marginTop = zombie2.style.marginTop;
+        console.log('zombie2:', [zombie2.style.marginLeft, zombie2.style.marginTop])
+        img_display(dead_zombie2);
+
+        // Make it disappear
+        setTimeout(function() {
+          img_hider(dead_zombie2);
+        }, 600);
+
+        // Increment score
+        zapped();
+      };
+
+      // Onclick listeners for start and end buttons
+      document.getElementById("start").onclick = function() {
+        zombie_starting_point();
+        start_game();
+      };
+
+      document.getElementById("end").onclick = function() {
+        end_game();
+      };
     </script>
   </body>
 </html>
+
