@@ -41,7 +41,7 @@
       />
       <img
         id="deadone"
-        src="image/dead.gif"
+        src="image/fire-1.gif"
         alt="dead"
         width="200px"
         height="150px"
@@ -55,8 +55,8 @@
       />
     </div>
 
-    <div>
-      <button id="end">End Game</button>
+    <div id="end">
+      <button id="end_button">End Game</button>
     </div>
 
     <script>
@@ -115,8 +115,8 @@
         width_value = Math.floor(Math.random() * (width - img_width));
         height_value = Math.floor(Math.random() * (height - img_height * 2));
         zombie2.style.display = "block";
-        zombie2.style.marginLeft = width_value2 + "px";
-        zombie2.style.marginTop = height_value2 + "px";
+        zombie2.style.marginLeft = width_value + "px";
+        zombie2.style.marginTop = height_value + "px";
       }
       function img_hider(whichzombie) {
         whichzombie.style.display = "none";
@@ -191,10 +191,10 @@
       document.getElementById("end").onclick = function() {
         end_game();
       };
-      document.getElementById("start").onclick = function() {
-        zombie_starting_point();
-        start_game();
-      };
+      // document.getElementById("start").onclick = function() {
+      //   zombie_starting_point();
+      //   start_game();
+      // };
 
     </script>
   </body>
