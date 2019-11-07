@@ -1,37 +1,18 @@
-#title {
-    text-align: center;
-}
-body {
-    background-color: dimgrey;
-}
-#score {
-    text-align: center;
-}
-table {
-    /*float: left;*/
-    /*width: 100%;*/
-    font-size: 20px;
-    width: 100px;
-    float: right;
-    left: 30px;
-    border: 3px dotted darkred;
-}
-
-/*#aliveone, #deadone {*/
-/*    display: block;*/
-/*    !*margin-left: auto;*!*/
-/*    !*margin-right: auto;*!*/
-/*    width: 50%;*/
-/*    height: auto;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
 button {
-    display: block;
+    /*display: block;*/
     margin: auto;
     font-size: 8px;
-    /*margin: auto;*/
+}
+
+#start {
+    font-size: 20px;
+}
+
+#end {
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 45%;
 }
 
 #table {
@@ -90,13 +71,3 @@ button {
   width: 100%;
 }
 
-#start {
-    font-size: 20px;
-}
-
-#end {
-    font-size: 20px;
-    position: absolute;
-    bottom: 0;
-    left: 45%;
-}
