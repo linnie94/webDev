@@ -1,21 +1,18 @@
 button {
-    /*display: block;*/
+    display: block;
     margin: auto;
-    font-size: 8px;
+    font-size: 20px;
 }
 
 #start {
     font-size: 20px;
 }
 
-#end {
-    font-size: 20px;
+#end_button {
+    font-size: px;
     position: absolute;
     bottom: 0;
     left: 45%;
-}
-
-#table {
 }
 
 .mainDiv {
@@ -63,7 +60,7 @@ table {
 button {
   display: block;
   margin: auto;
-  font-size: 8px;
+  font-size: 20px;
 }
 
 .mainDiv {
