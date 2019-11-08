@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Var vs Let</title>
+</head>
+<body>
+    <!-- Example 3 button -> there is a new way
+    This is old way -->
+    <button id='me'> Click me </button>
+    <p id="p-tag" style="padding-left:50px;padding-top:20px">Click!</p>
+    <img id="img" src="scary2.jpg" rel="scary">
+    <script>
+        // EXAMPLE 1
+        // function example()
+        // {
+        //     {
+        //         var n1 = 10;
+        //         // decalres a function-scoped variable
+        //         // n1 is accessible in all function example()
+        //         // "HOISTING"
+        //         let n2 = 20;
+        //         // declares a block-scope
+        //         // only within the its {} scope
+        //     }
+        //     console.log(n1);
+        //     console.log(n2);
+        // }
+        // example()
+
+        // EXAMPLE 2
+        // console.log(a);
+        // console.log("hello world"); // a is undefined so the script breaks
+
+        // function onclickHandler()
+        // {
+        //     document.getElementById("me").innerHTML = "clicked me!";
+        // }
+        // document.getElementById('me').onclick = onclickHandler;
+        // if you have the () end of the function, it calls the function already run
+        // before you want it to.
+
+        // if the function does not have return statement, it returns undefined
+        //
+
+        let value = 120;
+        function clickP()
+        {
+            document.getElementById('img').style.position="absolute";
+            document.getElementById('img').style.left= value+'px';
+            value = Math.floor(Math.random()*1000);
+        }
+            // document.getElementById('p-tag').onclick = clickP;
+        setInterval(clickP,60);
+
+        // random
+
+        // document.getElementById("me").onclick=
+
+
+
+    </script>
+</body>
+</html>

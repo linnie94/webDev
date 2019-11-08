@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>divide-function</title>
+</head>
+<body>
+<!-- Write a function to take a number k as parameter
+and calculate the sum of all numbers from 1 to k (1+2+...+k)
+and display the result in console-->
+<script>
+    function mySum(k){
+        let sum = 0;
+        for(let i = 1; i <= k; i++){
+            sum += i;
+        }
+        return sum;
+    }
+    let theSum = mySum(10);
+    function display(){
+        console.log(theSum);
+    }
+    // display();
+    function greet(name){
+        document.write('Hello ' + name);
+    }
+    let new_name = "Lynn";
+    // greet(new_name);
+    for(let i = 0; i < 10; i++)
+    {
+        console.log(i);
+    }
+    for(let i = 0; i < 10; ++i)
+    {
+        console.log(i);
+    }
+
+
+
+</script>
+</body>
+</html>

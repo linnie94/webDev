@@ -1,0 +1,153 @@
+<!--
+Lynn Hyerin Sohn
+A00968578
+COMP 1536
+Lab05
+JavaScript Functions
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "Lab05" content = "A page about JavaScript">
+    <title>Sohn Lab05</title>
+    <style>
+        #binary {
+            text-align: center;
+            font-size: xx-large;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<p id="binary"></p>
+<script>
+
+    // A
+    function prompting_user()
+    {
+        let user_input = parseInt(prompt("A number from 1~1000: "));
+        while(user_input < 1 || user_input > 1000)
+        {
+            let user_input = parseInt(prompt("Out of bounds! Please enter again: "));
+            if(user_input > 0 && user_input < 1001)
+            {
+                return user_input;
+            }
+        }
+        return user_input
+    }
+    // Finding remainder
+    function find_remainder(pos_int)
+    {
+        let remainder = pos_int % 2;
+        return (remainder);
+    }
+    // finding quotient
+    function find_quotient(pos_int)
+    {
+        let quotient = pos_int / 2;
+        quotient = Math.floor(quotient);
+        return (quotient);
+    }
+    // conversion using find_remainder & find quotient
+    function conversion(x)
+    {
+        // initial popping
+        let new_number = find_quotient(x);
+        let new_binary = find_remainder(x);
+        // push it on array so we can read it later
+        let array = [];
+        array.push(new_binary);
+        // Do the rest until it reaches zero
+        while (new_number > 0) {
+            new_binary = find_remainder(new_number);
+            new_number = find_quotient(new_number);
+            array.push(new_binary)
+        }
+        // Return array
+        return array;
+    }
+    function switch_to_string(array)
+    {
+        /* Initialize a string so we can add the binary bit in the
+        right order */
+        let x = '';
+        for(let i = array.length - 1; i >= 0; i--)
+        {
+            x += array[i]
+        }
+        return x
+    }
+    // Invoking the functions
+    // User Input
+    let number = prompting_user();
+    // convert and push on to array
+    let binary_array = conversion(number);
+    // Read array from backwards
+    let y = switch_to_string(binary_array);
+    // Result
+    let hell = "You entered " + number + " which in binary is (" + y +")";
+    // Write it in HTML in the specified <p>
+    document.getElementById("binary").innerText= hell;
+
+
+    // B
+    function sumOfBoth(array1,array2)
+    {
+        // takes two array
+        let sum = 0;
+        for(let i = 0; i < array1.length; i++)
+        {
+            //
+            sum += array1[i];
+        }
+        for(let j = 0; j < array2.length; j++)
+        {
+            //
+            sum += array2[j];
+        }
+        console.log(sum);
+    }
+    arr1 = [1,2,3];
+    arr2 = [3,4];
+    sumOfBoth(arr1, arr2);
+
+
+    // C
+    function count(array)
+    {
+        let neg_count = 0;
+        let pos_count = 0;
+        for(let i = 0; i < array.length; i++)
+        {
+            if(array[i] > 0)
+            {
+                pos_count++;
+            }
+            else if(array[i] < 0)
+            {
+                neg_count++;
+            }
+        }
+        if(pos_count > neg_count)
+        {
+            let pos = "Positive";
+            return pos;
+            // console.log(pos);
+            // document.getElementById("count").innerHTML=pos;
+        }
+        else
+        {
+            let neg = "Negative";
+            return neg;
+            // console.log(neg);
+            // document.getElementById("count").innerHTML=neg;
+        }
+    }
+    // Invoke count function
+    console.log(count([-1,-2,-3,-4,1,2,3]));
+</script>
+</body>
+</html>
