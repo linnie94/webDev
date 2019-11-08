@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick or Treat!</title>
+    <style>
+        body {
+            background-color: darkred;
+        }
+        #welcome {
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+    <p id="welcome">Welcome to BCIT COMP1536</p>
+    <button class="orange" onclick="colour_changer_orange()">Orange</button>
+    <button class="grey" onclick="colour_changer_grey()">Grey</button>
+    <button class="cyan" onclick="colour_changer_cyan()">Cyan</button>
+    <div>
+        <br><br><br>
+        <img id="door1" src="img/door1.jpg" alt="door1" width="200px" height="300px" onclick="change_img2()">
+        <img id="door2" src="img/door2.png" alt="door2" width="200px" height="300px" onclick="change_img1()">
+        <img id="door3" src="img/door3.jpg" alt="door3" width="200px" height="300px" onclick="change_img3()">
+    </div>
+    <script>
+        function colour_changer_orange()
+        {
+            document.getElementById('welcome').style.color= "darkorange";
+        }
+        function colour_changer_grey()
+        {
+            document.getElementById('welcome').style.color= "dimgrey";
+        }
+        function colour_changer_cyan()
+        {
+            document.getElementById('welcome').style.color= "cyan";
+        }
+        function change_img1()
+        {
+            document.getElementById('door2').src="img/scary1.PNG";
+        }
+        function change_img2()
+        {
+            document.getElementById('door1').src="img/scary2.jpg";
+        }
+        function change_img3()
+        {
+            document.getElementById('door3').src="img/treat.jpg";
+
+        }
+    </script>
+</body>
+</html>
