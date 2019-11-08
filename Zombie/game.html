@@ -6,8 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <audio id="gunshot">
-      <source src="src/explosion.mp3" />
+    <audio id="expl">
+      <source src="src/Explosion+1.mp3" />
+    </audio>
+    <audio id="arrow">
+      <source src="src/Arrow+Hit+1.mp3" />
     </audio>
     <h1 class="title">Zombie Game</h1>
     <table id="table">
@@ -141,7 +144,7 @@
 
       // Create onclick event for zombie
       zombie.onclick = function() {
-        document.getElementById("gunshot").play();
+        document.getElementById("expl").play();
 
         // Hide original zombie
         img_hider(zombie);
@@ -161,7 +164,7 @@
       };
 
       zombie2.onclick = function() {
-        document.getElementById("gunshot").play();
+        document.getElementById("arrow").play();
 
         // Hide original zombie
         img_hider(zombie2);
@@ -182,14 +185,17 @@
       };
 
 
+      document.getElementById("start").disabled = false;
       // Onclick listeners for start and end buttons
       document.getElementById("start").onclick = function() {
         zombie_starting_point();
         start_game();
+        document.getElementById("start").disabled = true;
       };
       // start_game();
       document.getElementById("end").onclick = function() {
         end_game();
+        document.getElementById("start").disabled = false;
       };
       // document.getElementById("start").onclick = function() {
       //   zombie_starting_point();
