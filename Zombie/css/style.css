@@ -48,6 +48,11 @@ table {
    padding: 0;
 } */
 
+img {
+    width: 200px;
+    height: 150px;
+}
+
 #aliveone, #deadone {
   position: absolute;
   z-index: 0;
