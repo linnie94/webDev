@@ -57,6 +57,7 @@ img {
   position: absolute;
   z-index: 0;
 }
+
 #aliveone2, #deadone2 {
   position: absolute;
   z-index: 10;
