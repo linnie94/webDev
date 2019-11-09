@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function generateButton(upperbound){
+        let char = 65;
+        for(let i = char; i < (char + upperbound); i++)
+        {
+            let btn = document.createElement("Button");
+            btn.innerHTML= String.fromCharCode(i);
+            document.body.appendChild(btn);
+            btn.onclick= function(){console.log("Button "+ String.fromCharCode(i)+" was clicked")};
+        }
+    }
+    generateButton(26);
+
+    function Myrecipe(title, servings, ingredients)
+    {
+        this.title = title;
+        this.servings = servings;
+        this.ingredients = ingredients;
+        this.print = function()
+        {
+            document.write('<br>');
+            document.write('<br>');
+            document.write("Title: "+ this.title + '<br>');
+            document.write("Servings: "+ this.servings + '<br>');
+            document.write('Ingredients: <br>');
+            for(let i = 0; i < this.ingredients.length; i++)
+            {
+                document.write(ingredients[i] + '<br>');
+            }
+
+        }
+    }
+    let myObj = new Myrecipe("Pasta", 4, ['tomato sauce','noodles','meat']);
+    myObj.print();
+
+</script>
+</body>
+</html>

@@ -7,19 +7,20 @@
 <body>
     <img id="img" src="img/source.gif" alt="Capoo" width="320" height="270">
     <script>
-        const width = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
 
-        const height = window.innerHeight
-            || document.documentElement.clientHeight
-            || document.body.clientHeight;
         let img_width = 320;
         let img_height = 270;
         let width_value = 120;
         let height_value = 120;
         function click_random_location()
         {
+            const width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+            const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
             document.getElementById('img').style.position="absolute";
             document.getElementById('img').style.left= width_value+'px';
             document.getElementById('img').style.top= height_value+'px';

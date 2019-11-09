@@ -25,6 +25,13 @@
         let width_value = 0;
         let height_value = 0;
         function random_locator() {
+            const width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+            const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
             document.getElementById('img2').style.marginLeft = width_value + 'px';
             document.getElementById('img2').style.marginTop = height_value + 'px';
             width_value = (Math.floor(Math.random() * (width - img_width)));
