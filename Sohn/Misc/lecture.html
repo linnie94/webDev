@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // console.log(1);
+    // setTimeout(function(){
+    //     console.log(2);
+    // }, 0.000000000000000);
+    // console.log(3);
+    // output = 1,3,2
+    // top to bottom in tis fashion.
+    // non-even statement - it will be executed immediately
+    // event eg. onclick, set timeout, ....
+    // event queue. the moment it sees event, it puts in queue and ignores the event
+    // when the main execution is finished, it goes back and read the event queue.
+
+    // console.log(1);
+    // setTimeout(function(){
+    //     console.log(2);
+    // }, 1000);
+    // console.log(3);
+    // setTimeout(function(){
+    //     console.log(4);
+    // }, 0);
+    //
+    // let x = { firstName: "john", lastName: "Doe"}; //Object
+    // console.log(x.firstName);
+    // console.log(x["lastName"]);
+    //
+    // let car = {
+    //     move: function() {console.log("i am moving")},
+    //     color: "red",
+    //     doors: 4,
+    //     start: function () {console.log("i am starting")},
+    //     speed: 100,
+    //     make: "Toyota",
+    //     stop: function () {console.log("I stopped!")},
+    //     setSpeed: function (speed) {this.speed = speed;}
+    //     // only reason that we use this is to diff this property these two parameter (speed) and speed after = sign
+    //     // this.speed is referring to speed that was declared above
+    // };
+    // function Person (firstName, lastName){
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    // }
+    // let person1 = new Person("Elon", "Musk");
+    // // new = calling this and create an object (obj constructor)
+    //
+    //
+    // let arr = [1,2,4,"Hello"];
+    // console.log(typeof(arr)); // object
+    // // let arr2 = new arr;
+    let btn = document.createElement("Button");
+    document.body.appendChild(btn);
+    btn.innerHTML="ClickMe";
+    btn.onclick= function(){alert("hello")};
+
+</script>
+</body>
+</html>

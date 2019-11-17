@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab09 Part A</title>
+    <style>
+        button {
+            width: 10em;
+            height: 5em;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <label for="input_value" id="label">How many buttons to create:<br></label>
+    <input type="text" id="input_value">
+    <input type="button" id="button" value="Go!"/>
+</div>
+<div id="float_area">
+</div>
+<script>
+    function Buttons(top, left, color, index)
+    {
+        this.top = top + 'px';
+        this.left = left + 'px';
+        this.color = color;
+        this.index = index;
+        this.btn = document.createElement('Button');
+        this.btn.setAttribute('id','button_'+this.index);
+        this.btn.style.backgroundColor= this.color;
+        document.getElementById('float_area').appendChild(this.btn);
+        document.getElementById('button_'+this.index).style.marginLeft = this.left + 'px';
+        document.getElementById('button_'+this.index).style.marginTop = this.top + 'px';
+    }
+
+    function random_locator()
+    {
+        const width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+        const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+        document.getElementById('img2').style.marginLeft = width_value + 'px';
+        document.getElementById('img2').style.marginTop = height_value + 'px';
+        width_value = (Math.floor(Math.random() * (width - img_width)));
+        height_value = (Math.floor(Math.random() * (height - img_height)));
+    }
+
+    function initial_create_buttons()
+    {
+        const width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+        const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+        // Reset the page
+        document.getElementById('float_area').innerHTML = "";
+        // Get value from the user
+        let button_numbers = document.getElementById('input_value').value;
+        // List of colours
+        let colours = ["red", 'pink','blue','yellow', 'cyan', 'grey', 'black', 'orange'];
+        let arr = [];
+        for(let i = 0; i < button_numbers; i++)
+        {
+            let random_n = Math.floor(Math.random() * (colours.length-1));
+            let color = colours[random_n];
+            width_value = (Math.floor(Math.random() * (width -10)));
+            height_value = (Math.floor(Math.random() * (height-5)));
+            arr.push(new Buttons(height_value, width_value, color, i));
+            // setInterval(random_locator, 100)
+        }
+
+    }
+
+    document.getElementById('button').onclick = initial_create_buttons;
+
+
+</script>
+</body>
+</html>
