@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lab 9 Part B</title>
+</head>
+
+<body>
+
+<div>How many buttons to create?</div>
+<input id="input" type="text">
+<button id="go">Go!</button>
+
+<br><br>
+
+
+<script>
+    // Array to store all buttons
+    let arrayButtons = [];
+    // let count = 0;
+
+    // Button constructor
+    function Button(color, id) {
+        this.color = color;
+        this.id = id;
+
+        // Create button
+        this.btn = document.createElement("button");
+        this.btn.id = this.id;
+
+        // Styling
+        this.btn.style.height = '5em';
+        this.btn.style.width = '10em';
+        // this.btn.style.position = 'absolute';
+        this.btn.style.background = this.color;
+
+        document.body.appendChild(this.btn);
+    }
+
+    // Clear buttons before displaying
+    function clearButtons() {
+        for (let i = 0; i < arrayButtons.length; i++) {
+            arrayButtons[i].btn.remove();
+        }
+        arrayButtons = [];
+    }
+
+    // Create and display buttons
+    function displayButtons(input) {
+        clearButtons();
+        for (let i = 0; i < input; i++) {
+            arrayButtons.push(new Button(getRandomColour(), i));
+        }
+    }
+
+    // Generate random colour for buttons
+    function getRandomColour() {
+        let letters = '0123456789ABCDEF';
+        let colour = '#';
+        for (let i = 0; i < 6; i++) {
+            colour += letters[Math.floor(Math.random() * 16)];
+        }
+        return colour;
+    }
+
+    // Get a random position for button
+    function getRandomPosition() {
+        let margin_top = Math.floor(Math.random() * (window.innerHeight - 200));
+        let margin_left = Math.floor(Math.random() * (window.innerWidth - 200));
+        return [margin_top, margin_left];
+    }
+
+    // Set a random position for all buttons
+    function setRandomPosition() {
+        for (let i = 0; i < arrayButtons.length; i++) {
+            let randomPosition = getRandomPosition();
+            arrayButtons[i].btn.style.marginTop = randomPosition[0] + 'px';
+            arrayButtons[i].btn.style.marginLeft = randomPosition[1] + 'px';
+            arrayButtons[i].btn.style.position = 'absolute';
+        }
+    }
+
+    // onclick listener on each button clicked
+    function check() {
+        let count = 0;
+        for (let i = 0; i < arrayButtons.length; i++) {
+            arrayButtons[i].btn.onclick = function () {
+                if (count === i) {
+                    count++;
+                    if (count === (arrayButtons.length)) {
+                        count = 0;
+                        alert("Good Memory!");
+                        clearButtons();
+                    }
+                } else {
+                    count = 0;
+                    alert("Sorry, WRONG");
+                    clearButtons();
+                }
+            }
+        }
+    }
+
+    // Set onclick listener on "Go!" to create buttons
+    document.getElementById("go").onclick = function () {
+        let input = Number(document.getElementById("input").value);
+        if (input < 5 || input > 100 || isNaN(input)) {
+            alert('Please re-enter valid input between 5 to 100');
+        } else {
+            displayButtons(input);
+            setTimeout(setRandomPosition, 3000);
+            setTimeout(check, 3000);
+        }
+    };
+</script>
+
+
+</body>
+
+</html>
