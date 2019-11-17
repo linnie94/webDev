@@ -92,11 +92,11 @@
                         count = 0;
                         alert("Good Memory!");
                         clearButtons();
+                        document.getElementById("go").disabled = false;
                     }
                 } else {
                     count = 0;
                     alert("Sorry, it's wrong\nTry again!");
-                    // clearButtons();
                 }
             }
         }
@@ -104,9 +104,11 @@
 
     // Set onclick listener on "Go!" to create buttons
     document.getElementById("go").onclick = function () {
+        document.getElementById("go").disabled = true;
         let input = Number(document.getElementById("input").value);
         if (input < 5 || input > 100 || isNaN(input)) {
             alert('Please re-enter valid input between 5 to 100');
+            document.getElementById("go").disabled = false;
         } else {
             displayButtons(input);
             setTimeout(setRandomPosition, 3000);
