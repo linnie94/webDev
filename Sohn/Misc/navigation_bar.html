@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 9</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #800000;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: rebeccapurple;
+        }
+
+        .active {
+            background-color: rebeccapurple;
+        }
+
+        @media only screen and (max-width: 500px){
+            /*body{*/
+            /*    background-color: darkcyan;*/
+            /*}*/
+            /*#one {*/
+
+            /*}*/
+            /*#two {*/
+            /*    display: none;*/
+            /*}*/
+            #phone {
+                height: 100%;
+                width: 100%;
+            }
+            #ipad {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 900px) and (min-width: 501px) {
+            #ipad {
+                height: 100%;
+                width: 100%;
+            }
+            #phone{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+
+</ul>
+<!--<div id="one">-->
+<!--    <p>one</p>-->
+<!--</div>-->
+<!--<div id="two">-->
+<!--    <p>two</p>-->
+<!--</div>-->
+
+<img id="phone" src="phone.jpeg" alt="phones">
+<img id="ipad" src="ipad.jpg" alt="ipad">
+<script>
+    let p = new Date();
+    for(let i = 0; i < 100000; i++){
+        console.log(i);
+    }
+    let p2 = (new Date()) - p;
+    console.log(p2);
+</script>
+
+
+</body>
+</html>
